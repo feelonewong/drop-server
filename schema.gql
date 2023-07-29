@@ -1,0 +1,55 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserType {
+  """ID"""
+  id: String!
+
+  """姓名"""
+  name: String!
+
+  """详情"""
+  desc: String!
+
+  """账户信息"""
+  account: String!
+}
+
+type OSSType {
+  """过期时间"""
+  expire: String!
+
+  """策略"""
+  policy: String!
+
+  """签名"""
+  signature: String!
+
+  """允许ID"""
+  accessId: String!
+}
+
+type Query {
+  """使用id查询用户"""
+  find(id: String!): UserType!
+
+  """获取Oss配置信息"""
+  getOSSInfo: OSSType!
+}
+
+type Mutation {
+  """新建用户"""
+  create(params: UserInput!): Boolean!
+
+  """更新用户"""
+  update(id: String!, params: UserInput!): Boolean!
+
+  """删除用户"""
+  del(id: String!): Boolean!
+}
+
+input UserInput {
+  name: String!
+  desc: String!
+}

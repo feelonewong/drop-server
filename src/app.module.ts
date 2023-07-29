@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './modules/user/user.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver } from '@nestjs/apollo';
-
+import { OssModule } from './modules/oss/oss.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -22,9 +22,10 @@ import { ApolloDriver } from '@nestjs/apollo';
     }),
     GraphQLModule.forRoot({
       driver: ApolloDriver,
-      autoSchemaFile: true,
+      autoSchemaFile: './schema.gql',
     }),
     UserModule,
+    OssModule,
   ],
   controllers: [AppController],
   providers: [AppService],
